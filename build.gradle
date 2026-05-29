@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'org.example'
+version = '0.0.1-SNAPSHOT'
+description = 'Database termpaper'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainClass = 'org.example.databasetermpaper.AppLauncher'
+}
+
+javafx {
+    version = '21.0.6'
+    modules = ['javafx.controls']
+}
+
+dependencies {
+    implementation 'org.postgresql:postgresql:42.7.7'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
